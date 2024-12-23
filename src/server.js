@@ -1,14 +1,14 @@
-const http = require("http");
+const express = require("express");
 
 const PORT = 7777;
 
+const app = express();
 
-const server = http.createServer(function (req, res) {
-    console.log("Server is calling");
+app.use("/test", (req, res) => {
+    res.send("Hello , I am  from server");
     res.end();
-});
+})
 
-
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log("SERVER is running in PORT " + PORT);
 })
