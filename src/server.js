@@ -2,12 +2,15 @@ const express = require("express");
 const { connectDB } = require("./config/database");
 const { authRouter } = require("./routes/authRouter");
 const { profileRouter } = require("./routes/profileRouter");
+const cookieParser= require("cookie-parser");
 
 const PORT = 7777;
 const app = express();
 
 // USIng JSON parser to convert into JSON objects
 app.use(express.json());
+
+app.use(cookieParser());
 
 app.use("/", (req, res, next) => {
     console.log("wild card route running");
